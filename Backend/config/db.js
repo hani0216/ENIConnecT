@@ -1,10 +1,17 @@
+// config/db.js
 const mongoose = require('mongoose');
+require('dotenv').config(); // Charge les variables d'environnement
 
-mongoose.connect('mongodb+srv://adminenit:adminenit@eniconnect.ewroc.mongodb.net/?retryWrites=true&w=majority&appName=ENIConnecT', {
+const uri = process.env.MONGODB_URI; // L'URI de connexion à la base de données
 
-}).then(() => {
-    console.log('Connexion à la base de données locale MongoDB réussie');
-}).catch(err => {
-    console.error('Erreur de connexion à la base de données MongoDB locale', err);
-});
+const connectDB = async () => {
+    try {
+        await mongoose.connect(uri); // Supprimez les options obsolètes
+        console.log("MongoDB connecté avec succès !");
+    } catch (error) {
+        console.error("Erreur de connexion à MongoDB :", error);
+        process.exit(1); // Arrête l'application en cas d'erreur
+    }
+};
 
+module.exports = connectDB;

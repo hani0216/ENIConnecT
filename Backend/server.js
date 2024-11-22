@@ -1,8 +1,11 @@
 const express = require('express');  // Importation d'Express
-const app = express();               // Création de l'application Express
+require('dotenv').config({ path: './config/.env' });
+const connectDB = require('./config/db.js');
 
-// Configuration du port (valeur fixe)
-const port = 3000;
+// Connexion à la base de données
+connectDB();
+
+const app = express();               // Création de l'application Express
 
 // Route de base
 app.get('/', (req, res) => {
@@ -10,6 +13,6 @@ app.get('/', (req, res) => {
 });
 
 // Démarrage du serveur
-app.listen(port, () => {
-  console.log(`Serveur démarré sur le port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
 });
