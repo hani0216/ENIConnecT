@@ -1,0 +1,9 @@
+# Ignore les fichiers générés par npm
+node_modules/
+
+# Ignore les fichiers de sauvegarde
+*~
+*.swp
+
+# Ignore les fichiers de configuration locaux
+.env
