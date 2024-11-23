@@ -1,18 +1,18 @@
-// routes/publicationRoutes.js
 const express = require('express');
 const router = express.Router();
-const publicationController = require('../controllers/publicationController');
+const {
+  creerPublication,
+  getAllPublications,
+  getPublicationById,
+  supprimerPublication,
+  updatePublication, // Nouvelle méthode
+} = require('../controllers/publicationController');
 
-// Créer une publication
-router.post('/', publicationController.creerPublication);
-
-// Récupérer toutes les publications
-router.get('/', publicationController.getAllPublications);
-
-// Récupérer une publication par son ID
-router.get('/:id', publicationController.getPublicationById);
-
-// Supprimer une publication par son ID
-router.delete('/:id', publicationController.supprimerPublication);
+// Routes pour les publications
+router.post('/', creerPublication); // Créer une publication
+router.get('/', getAllPublications); // Récupérer toutes les publications
+router.get('/:id', getPublicationById); // Récupérer une publication par ID
+router.put('/:id', updatePublication); // Mettre à jour une publication
+router.delete('/:id', supprimerPublication); // Supprimer une publication
 
 module.exports = router;
