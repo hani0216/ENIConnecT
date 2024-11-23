@@ -1,12 +1,16 @@
-// userController.js
-const User = require('../models/User');
+const mongoose = require('mongoose');
 
-exports.createUser = async (req, res) => {
-  try {
-    const newUser = new User(req.body);
-    await newUser.save();
-    res.status(201).json(newUser);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
+const utilisateurSchema = new mongoose.Schema({
+  nomUtilisateur: { type: String, required: true, unique: true },  // username
+  email: { type: String, required: true, unique: true },
+  motDePasse: { type: String, required: true },  // password
+  dateCreation: { type: Date, default: Date.now },  // createdAt
+  role: { type: String, enum: ['étudiant', 'enseignant', 'admin'], default: 'étudiant' },  // role
+  
+  // Champs spécifiques aux étudiants
+  filiere: { type: String, required: function() { return this.role === 'étudiant'; } },  // filière
+  classe: { type: String, required: function() { return this.role === 'étudiant'; } },   // classe
+  option: { type: String, required: function() { return this.role === 'étudiant'; } }    // option
+});
+
+module.exports = mongoose.model('Utilisateur', utilisateurSchema);
