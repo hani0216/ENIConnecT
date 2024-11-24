@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+// models/commentaire.js
+const mongoose = require('mongoose');
 
 const commentaireSchema = new mongoose.Schema({
-  contenu: String,
-  date: { type: Date, default: Date.now },
-  auteur: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  idPub: { type: mongoose.Schema.Types.ObjectId, ref: "publication" },
-  estAnonyme: Boolean,
+  contenu: { type: String, required: true },
+  auteur: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Référence à l'utilisateur
+  publication: { type: mongoose.Schema.Types.ObjectId, ref: 'publication', required: true }, // Référence à la publication
+  dateCommentaire: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Commentaire", commentaireSchema);
+module.exports = mongoose.model('Commentaire', commentaireSchema);
