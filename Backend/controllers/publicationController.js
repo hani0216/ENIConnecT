@@ -44,16 +44,22 @@ exports.creerPublication = async (req, res) => {
     res.status(400).json({ message: 'Erreur lors de la création de la publication', erreur: err.message });
   }
 };
+
+
 // Récupérer toutes les publications
 exports.getAllPublications = async (req, res) => {
   try {
-    const publications = await Publication.find().populate('auteur', 'nom email'); // Remplir le champ "auteur" avec les détails de l'utilisateur
+    let publications = await Publication.find().populate({
+      path: 'auteur',
+      select: 'nom email',
+      match: { estAnonyme: false } // Populer les détails de l'auteur uniquement si la publication n'est pas anonyme
+    }).lean();
+
     res.status(200).json(publications);
   } catch (err) {
     res.status(500).json({ message: 'Erreur lors de la récupération des publications', erreur: err.message });
   }
 };
-
 // Récupérer une publication par ID
 exports.getPublicationById = async (req, res) => {
   try {
