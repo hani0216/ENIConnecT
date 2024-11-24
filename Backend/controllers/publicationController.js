@@ -3,29 +3,47 @@ const Publication = require('../models/publication'); // Le modèle Publication
 const User = require('../models/User'); // Le modèle User
 
 // Créer une nouvelle publication
+// controllers/publicationController.js
+
+// Créer une nouvelle publication
 exports.creerPublication = async (req, res) => {
   try {
     const { titre, contenu, estAnonyme, auteur } = req.body;
-    
-    if (!auteur) {
-      return res.status(400).json({ message: "L'utilisateur est requis pour la publication" });
+
+    if (estAnonyme === true) {
+      const nouvellePublication = new Publication({
+        titre,
+        contenu,
+        estAnonyme: true
+      });
+      await nouvellePublication.save();
+      
+      res.status(201).json({ message: 'Publication créée avec succès', publication: nouvellePublication });
+    } else {
+      if (!auteur) {
+        return res.status(400).json({ message: "L'auteur est requis pour la publication" });
+      }
+
+      const nouvellePublication = new Publication({
+        titre,
+        contenu,
+        auteur: auteur.toString(), // Convertir l'auteur en chaîne de caractères
+        estAnonyme: false
+      });
+
+      // Ajouter un affichage de l'erreur ici pour mieux comprendre
+      try {
+        await nouvellePublication.save();
+        res.status(201).json({ message: 'Publication créée avec succès', publication: nouvellePublication });
+      } catch (error) {
+        // Afficher l'erreur spécifique
+        return res.status(400).json({ message: "Erreur lors de la création de la publication", erreur: error.message });
+      }
     }
-
-    const nouvellePublication = new Publication({
-      titre,
-      contenu,
-      auteur,
-      estAnonyme,
-    });
-
-    await nouvellePublication.save();
-    res.status(201).json({ message: 'Publication créée avec succès', publication: nouvellePublication });
   } catch (err) {
     res.status(400).json({ message: 'Erreur lors de la création de la publication', erreur: err.message });
   }
 };
-
-
 // Récupérer toutes les publications
 exports.getAllPublications = async (req, res) => {
   try {
