@@ -46,29 +46,19 @@ exports.creerPublication = async (req, res) => {
   }
 };
 
-
-// Route pour récupérer les publications anonymes
-// Route pour récupérer les publications anonymes
-exports.getAllAnonymes =  async (req, res) => {
+exports.getAllAnonymes = async (req, res) => {
   try {
     const publicationsAnonymes = await Publication.find({ estAnonyme: true }).lean();
-    res.status(200).json(publicationsAnonymes);
+    return publicationsAnonymes;
   } catch (err) {
-    res.status(500).json({ message: 'Erreur lors de la récupération des publications anonymes', erreur: err.message });
+    throw new Error('Erreur lors de la récupération des publications anonymes: ' + err.message);
   }
 };
 
-// Récupérer toutes les publications
-
-
-
-exports.getNonAnonymes = async(req,res) => {
-  // Route pour récupérer les publications non anonymes avec les détails des auteurs s'ils existent
-
+exports.getNonAnonymes = async (req, res) => {
   try {
     const publicationsNonAnonymes = await Publication.find({ estAnonyme: false }).lean();
 
-    // Vérifier et peupler les détails de l'auteur pour les publications non anonymes
     for (let publication of publicationsNonAnonymes) {
       if (publication.auteur) {
         const auteur = await User.findById(publication.auteur).select('nom email').lean();
@@ -78,40 +68,36 @@ exports.getNonAnonymes = async(req,res) => {
       }
     }
 
-    res.status(200).json(publicationsNonAnonymes);
+    return publicationsNonAnonymes;
   } catch (err) {
-    res.status(500).json({ message: 'Erreur lors de la récupération des publications non anonymes', erreur: err.message });
+    throw new Error('Erreur lors de la récupération des publications non anonymes: ' + err.message);
   }
-
-}
-
-
-// Récupérer toutes les publications
+};
 
 exports.getAllPublications = async (req, res) => {
   try {
-    const publicationsAnonymes = await exports.getAllAnonymes(req, res);
-    const publicationsNonAnonymes = await exports.getNonAnonymes(req, res);
+    const publicationsAnonymes = await Publication.find({ estAnonyme: true }).lean();
+    
+    const publicationsNonAnonymes = await Publication.find({ estAnonyme: false }).lean();
+    for (let publication of publicationsNonAnonymes) {
+      if (publication.auteur) {
+        const auteur = await User.findById(publication.auteur).select('nom email').lean();
+        publication.auteur = auteur || { nom: 'Auteur inconnu', email: 'inconnu@example.com' };
+      } else {
+        publication.auteur = { nom: 'Auteur inconnu', email: 'inconnu@example.com' };
+      }
+    }
 
-    const allPublications = combinePublications(publicationsAnonymes, publicationsNonAnonymes);
-
+    const allPublications = [...publicationsAnonymes, ...publicationsNonAnonymes];
+    
     res.status(200).json(allPublications);
   } catch (err) {
     res.status(500).json({ message: 'Erreur lors de la récupération des publications', erreur: err.message });
   }
 };
 
-function combinePublications(anonymes, nonAnonymes) {
-  const combinedPublications = {};
 
-  // Ajouter les publications anonymes au nouvel objet
-  combinedPublications.anonymes = { ...anonymes };
 
-  // Ajouter les publications non anonymes au nouvel objet
-  combinedPublications.nonAnonymes = { ...nonAnonymes };
-
-  return combinedPublications;
-}
 
 
 // Récupérer une publication par ID
