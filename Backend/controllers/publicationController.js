@@ -45,20 +45,26 @@ exports.creerPublication = async (req, res) => {
     res.status(400).json({ message: 'Erreur lors de la création de la publication', erreur: err.message });
   }
 };
-
-exports.getAllAnonymes = async (req, res) => {
+exports.getAllAnonymes =  async (req, res) => {
   try {
     const publicationsAnonymes = await Publication.find({ estAnonyme: true }).lean();
-    return publicationsAnonymes;
+    res.status(200).json(publicationsAnonymes);
   } catch (err) {
-    throw new Error('Erreur lors de la récupération des publications anonymes: ' + err.message);
+    res.status(500).json({ message: 'Erreur lors de la récupération des publications anonymes', erreur: err.message });
   }
 };
 
-exports.getNonAnonymes = async (req, res) => {
+// Récupérer toutes les publications
+
+
+
+exports.getNonAnonymes = async(req,res) => {
+  // Route pour récupérer les publications non anonymes avec les détails des auteurs s'ils existent
+
   try {
     const publicationsNonAnonymes = await Publication.find({ estAnonyme: false }).lean();
 
+    // Vérifier et peupler les détails de l'auteur pour les publications non anonymes
     for (let publication of publicationsNonAnonymes) {
       if (publication.auteur) {
         const auteur = await User.findById(publication.auteur).select('nom email').lean();
@@ -68,11 +74,12 @@ exports.getNonAnonymes = async (req, res) => {
       }
     }
 
-    return publicationsNonAnonymes;
+    res.status(200).json(publicationsNonAnonymes);
   } catch (err) {
-    throw new Error('Erreur lors de la récupération des publications non anonymes: ' + err.message);
+    res.status(500).json({ message: 'Erreur lors de la récupération des publications non anonymes', erreur: err.message });
   }
-};
+
+}
 
 exports.getAllPublications = async (req, res) => {
   try {
