@@ -4,7 +4,7 @@ const Publication = require('../models/publication');
 const User = require('../models/User'); // Assurez-vous que le modèle User est correct
 
 // Créer un commentaire pour une publication
-exports.creerCommentaire = async (req, res) => {
+creerCommentaire = async (req, res) => {
   try {
     const { contenu, publicationId, auteurId } = req.body;
 
@@ -31,8 +31,7 @@ exports.creerCommentaire = async (req, res) => {
   }
 };
 
-// Récupérer les commentaires d'une publication
-exports.getCommentairesParPublication = async (req, res) => {
+getCommentairesParPublication = async (req, res) => {
   try {
     const publicationId = req.params.publicationId;
 
@@ -42,15 +41,21 @@ exports.getCommentairesParPublication = async (req, res) => {
       return res.status(404).json({ message: 'Publication non trouvée' });
     }
 
-    const commentaires = await Commentaire.find({ publication: publicationId }).populate('auteur', 'nom email');
-    res.status(200).json(commentaires);
+    // Récupérer les commentaires associés à la publication
+    const commentaires = await Commentaire.find({ publication: publicationId });
+
+    // Inclure l'ID de l'auteur de la publication dans la réponse
+    res.status(200).json({
+      publicationAuteurId: publication.auteur, // ID de l'auteur de la publication
+      commentaires: commentaires
+    });
   } catch (error) {
     res.status(500).json({ message: 'Erreur lors de la récupération des commentaires', erreur: error.message });
   }
 };
 
 // Mettre à jour un commentaire
-exports.updateCommentaire = async (req, res) => {
+updateCommentaire = async (req, res) => {
   try {
     const { contenu } = req.body;
     const commentaireId = req.params.id;
@@ -72,7 +77,7 @@ exports.updateCommentaire = async (req, res) => {
 };
 
 // Supprimer un commentaire
-exports.supprimerCommentaire = async (req, res) => {
+supprimerCommentaire = async (req, res) => {
   try {
     const commentaireId = req.params.id;
 
@@ -86,3 +91,6 @@ exports.supprimerCommentaire = async (req, res) => {
     res.status(500).json({ message: 'Erreur lors de la suppression du commentaire', erreur: error.message });
   }
 };
+
+// Exporter les méthodes du contrôleur
+module.exports = {creerCommentaire, getCommentairesParPublication,updateCommentaire,supprimerCommentaire};

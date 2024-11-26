@@ -20,6 +20,7 @@ app.use('/api/comments', commentaireRoutes);
 
 
 
+
 // Route de base
 app.get('/', (req, res) => {
   res.send('Serveur Node.js avec connexion MongoDB fonctionne !');
