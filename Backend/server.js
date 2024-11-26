@@ -5,6 +5,7 @@ const connectDB = require('./config/db.js');  // Importation de la connexion DB
 const userRoutes = require('./routes/userRoutes.js')
 const publicationRoutes = require('./routes/publicationRoutes');
 const commentaireRoutes = require('./routes/commentaireRoutes');
+const reactionRoutes = require ('./routes/reactionRoutes.js')
 
 
 // Connexion à la base de données
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use('/api/publications', publicationRoutes);
 app.use("/api/users", userRoutes);
 app.use('/api/comments', commentaireRoutes);
+app.use ('/api/reactions' , reactionRoutes)
 
 
 

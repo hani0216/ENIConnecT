@@ -1,19 +1,33 @@
 const express = require('express');
 const router = express.Router();
+const { 
+    getPositiveReactionsCountByPublicationId ,
+    getNegativeReactionsCountByPublicationId ,
+    reactNegative ,
+    reactPositive ,
+    cancelNegativeReaction , 
+    cancelPositiveReaction ,
+    createReaction ,
+    getUsersWithNegativeReactions ,
+    getUsersWithPositiveReactions ,
+    deleteReaction ,
+    getAllUsersReactions ,
+
+} =require('../controllers/reactionController')
 
 
-router.get('/reaction/:publicationId/positiveCount', getPositiveReactionsCountByPublicationId); // nombre des réactions positives
-router.get('/reaction/:publicationId/negativeCount', getNegativeReactionsCountByPublicationId); // nombre des réactions négatives
-router.post('/reaction/positive/:userId/:publicationId', reactPositive); // ajout d une réaction positive
-router.post('/reaction/negative/:userId/:publicationId', reactNegative); //ajout d'une réaction négative
-router.delete('/reaction/cancelPositive/:userId/:publicationId', cancelPositiveReaction); // annulatiion d une reaction positive
-router.delete('/reaction/cancelNegative/:userId/:publicationId', cancelNegativeReaction); // annulatiion d une reaction negative 
-router.post('/reaction/create/:publicationId', createReaction); // creeation dune reactioon assosié a une publication
-router.delete('/publication/delete/:publicationId', deleteReaction); // suprimer reaction d'une publication
+router.get('/:publicationId/positiveCount', getPositiveReactionsCountByPublicationId); // nombre des réactions positives ok
+router.get('/:publicationId/negativeCount', getNegativeReactionsCountByPublicationId); // nombre des réactions négatives ok 
+router.post('/positive/:userId/:publicationId', reactPositive); // ajout d une réaction positive   ok 
+router.post('/negative/:userId/:publicationId', reactNegative); //ajout d'une réaction négative    ok
+router.delete('/cancelPositive/:userId/:publicationId', cancelPositiveReaction); // annulatiion d une reaction positive
+router.delete('/cancelNegative/:userId/:publicationId', cancelNegativeReaction); // annulatiion d une reaction negative 
+router.post('/create/:publicationId', createReaction); // creeation dune reactioon assosié a une publication   OK
+router.delete('/publication/delete/:publicationId', deleteReaction); // suprimer reaction d'une publication 
 
-router.get('/publication/reactions/positive/:publicationId', getUsersWithPositiveReactions);
-router.get('/publication/reactions/negative/:publicationId', getUsersWithNegativeReactions);
-router.get('/publication/reactions/all/:publicationId', getAllUsersReactions);
+router.get('/positive/:publicationId', getUsersWithPositiveReactions);
+router.get('/negative/:publicationId', getUsersWithNegativeReactions);
+router.get('/all/:publicationId', getAllUsersReactions);
 
 
 

@@ -1,7 +1,6 @@
 const Reaction = require('../models/Reaction');
 
 
-
 exports.getPositiveReactionsCountByPublicationId = async (req, res) => {
   const publicationId = req.params.publicationId;
 
@@ -19,7 +18,6 @@ exports.getPositiveReactionsCountByPublicationId = async (req, res) => {
 };
 
 
-const Reaction = require('../models/Reaction');
 
 exports.getNegativeReactionsCountByPublicationId = async (req, res) => {
   const publicationId = req.params.publicationId;
@@ -249,3 +247,4 @@ exports.getUsersWithPositiveReactions = async (req, res) => {
       return res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération de tous les utilisateurs ayant réagi à la publication.' });
     }
   };
+
