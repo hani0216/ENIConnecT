@@ -9,12 +9,11 @@ router.post('/reaction/negative/:userId/:publicationId', reactNegative); //ajout
 router.delete('/reaction/cancelPositive/:userId/:publicationId', cancelPositiveReaction); // annulatiion d une reaction positive
 router.delete('/reaction/cancelNegative/:userId/:publicationId', cancelNegativeReaction); // annulatiion d une reaction negative 
 router.post('/reaction/create/:publicationId', createReaction); // creeation dune reactioon assosié a une publication
-router.delete('/publication/delete/:publicationId', deleteReactionOnPublicationDelete);
+router.delete('/publication/delete/:publicationId', deleteReaction); // suprimer reaction d'une publication
 
-
-
-
-
+router.get('/publication/reactions/positive/:publicationId', getUsersWithPositiveReactions);
+router.get('/publication/reactions/negative/:publicationId', getUsersWithNegativeReactions);
+router.get('/publication/reactions/all/:publicationId', getAllUsersReactions);
 
 
 

@@ -181,7 +181,7 @@ exports.createReaction = async (req, res) => {
     }
   };
 
-  const Reaction = require('../models/Reaction');
+  
 
 exports.deleteReaction = async (req, res) => {
   const { publicationId } = req.params;
@@ -198,3 +198,54 @@ exports.deleteReaction = async (req, res) => {
     return res.status(500).json({ error: 'Une erreur s\'est produite lors de la suppression de la réaction associée à la publication.' });
   }
 };
+
+exports.getUsersWithPositiveReactions = async (req, res) => {
+    const { publicationId } = req.params;
+  
+    try {
+      const reaction = await Reaction.findOne({ publication: publicationId });
+      
+      if (!reaction) {
+        return res.status(404).json({ error: 'Aucune réaction trouvée pour cette publication.' });
+      }
+  
+      const usersWithPositiveReactions = reaction.userReactions.filter(userReact => userReact.reactionType === 'positive');
+      return res.json(usersWithPositiveReactions);
+    } catch (err) {
+      return res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération des utilisateurs avec des réactions positives.' });
+    }
+  };
+
+  exports.getUsersWithNegativeReactions = async (req, res) => {
+    const { publicationId } = req.params;
+  
+    try {
+      const reaction = await Reaction.findOne({ publication: publicationId });
+      
+      if (!reaction) {
+        return res.status(404).json({ error: 'Aucune réaction trouvée pour cette publication.' });
+      }
+  
+      const usersWithNegativeReactions = reaction.userReactions.filter(userReact => userReact.reactionType === 'negative');
+      return res.json(usersWithNegativeReactions);
+    } catch (err) {
+      return res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération des utilisateurs avec des réactions négatives.' });
+    }
+  };
+
+
+  exports.getAllUsersReactions = async (req, res) => {
+    const { publicationId } = req.params;
+  
+    try {
+      const reaction = await Reaction.findOne({ publication: publicationId });
+      
+      if (!reaction) {
+        return res.status(404).json({ error: 'Aucune réaction trouvée pour cette publication.' });
+      }
+  
+      return res.json(reaction.userReactions);
+    } catch (err) {
+      return res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération de tous les utilisateurs ayant réagi à la publication.' });
+    }
+  };
