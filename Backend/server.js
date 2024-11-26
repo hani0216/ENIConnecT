@@ -22,6 +22,7 @@ app.use ('/api/reactions' , reactionRoutes)
 
 
 
+
 // Route de base
 app.get('/', (req, res) => {
   res.send('Serveur Node.js avec connexion MongoDB fonctionne !');
