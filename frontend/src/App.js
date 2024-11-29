@@ -1,6 +1,10 @@
 import './App.css';
 import Home from './pages/Home.jsx';
-import HomeNavBar from './components/HomeNavBar.jsx';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+
+import LOGIN from './pages/LogIn.jsx'
+import SIGNUP from './pages/SignUp.jsx'
+
 
 function App() {
   return (
@@ -24,6 +28,17 @@ function App() {
     </div>
   );
 }
+
+
+<Routes >
+  <Route  path="/logIn" element={<LOGIN />} />
+  <Route  path="/signUp" element={<SIGNUP />} />
+</Routes>
+
+
+
+
+
 
 export default App;
 
