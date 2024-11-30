@@ -1,0 +1,52 @@
+.Frame{
+
+
+}
+
+
+.main-container2{
+   
+    display: flex;
+    width: 384px;
+    padding: 24px 24px 46px 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: rgba(15, 28, 130, 0.20);
+
+}
+
+.title{
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 100% */
+    display: flex;
+    width: 194px;
+    height: 47px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subtitle{
+    color: var(--Gray-900, #101828);
+
+/* Text xl/Semibold */
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 30px; /* 150% */
+}
+.description{
+    color: var(--Gray-600, #475467);
+
+/* Text md/Regular */
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+}
