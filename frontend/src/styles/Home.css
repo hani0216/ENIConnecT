@@ -3,14 +3,15 @@
     background : url('../assets/BoyGif.gif') no-repeat center ;
     width: 500px;
     height: 439px;
-    padding: 0 0 0 0  ;
-    margin-right: 7% ;
+    padding-right: 10%;
     margin-left: 20%;
 }
 .div1{
     display: flex;
-    margin-top: 15vh;
-    margin-left: 16px;
+    margin-top: 10vh;
+    margin-left: 10%;
+    margin-right: 0%;
+   
 }
 .leftSection{
     display: flex;
@@ -18,7 +19,9 @@
     align-items: flex-start;
     gap: 24px;
     align-self: stretch;
-    margin-left: 10vh;
+    padding-left: 0%;
+
+    flex-shrink: 0;
 }
 
 

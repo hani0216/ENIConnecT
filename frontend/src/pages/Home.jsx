@@ -17,8 +17,8 @@ const Home = () => {
             </header>
             <body>
                 <div className='div1'>
-                    <section  >
-                        <section className='leftSection'>
+                   
+                    <section className='leftSection'>
                         <Eniconnect />
                         <text className='content'>Connectez-vous à l’ENIT. <br />
                             Répondre à vos questions. <br />
@@ -31,9 +31,13 @@ const Home = () => {
                         
                        
                         
-                    </section>
+                  
                     <section className='Gif'></section>
                 </div>
+                
+                <button className='medium-primary-1' style={{marginLeft: '30%'  , marginTop: '2%'}}>
+                <span className='button-2' >Inscrivez-vous</span>
+                </button>
          
             </body>
         </div>
