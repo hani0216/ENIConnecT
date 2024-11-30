@@ -1,7 +1,7 @@
 import '../styles/Home.css'
 import React from 'react';
 import HomeNavBar from '../components/HomeNavBar';
-
+import FEATURES from '../components/Features'
 
 import Eniconnect from '../components/Eniconnect';
 
@@ -38,6 +38,10 @@ const Home = () => {
                 <button className='medium-primary-1' style={{marginLeft: '30%'  , marginTop: '2%'}}>
                 <span className='button-2' >Inscrivez-vous</span>
                 </button>
+                <div className='features'>
+                   <FEATURES />
+
+                </div>
          
             </body>
         </div>
