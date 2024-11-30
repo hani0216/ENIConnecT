@@ -5,20 +5,20 @@ const connectDB = require('./config/db.js');  // Importation de la connexion DB
 const userRoutes = require('./routes/userRoutes.js')
 const publicationRoutes = require('./routes/publicationRoutes');
 const commentaireRoutes = require('./routes/commentaireRoutes');
-const reactionRoutes = require ('./routes/reactionRoutes.js')
+const reactionRoutes = require('./routes/reactionRoutes.js')
 
 
 // Connexion à la base de données
 connectDB();
 // Création de l'application Express
-const app = express();                        
+const app = express();
 
 // Middleware pour le parsing JSON (si nécessaire)
 app.use(express.json());
 app.use('/api/publications', publicationRoutes);
 app.use("/api/users", userRoutes);
 app.use('/api/comments', commentaireRoutes);
-app.use ('/api/reactions' , reactionRoutes)
+app.use('/api/reactions', reactionRoutes)
 
 
 
