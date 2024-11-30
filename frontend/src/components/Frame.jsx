@@ -3,7 +3,7 @@ import '../styles/Frame.css'
 
 function Frame({FrameTitle , FrameSubtitle , FrameDescription}) {
   return (
-    <div className='Frame'>
+    <div>
             <div className='main-container2'>
         <div className='title'>
             <text>{FrameTitle}</text>

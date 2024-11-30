@@ -3,7 +3,7 @@ import '../styles/Separation.css'
 
 function Features({ title }) {
   return (
-    <div className='Features'>
+    <div className='Features1'>
       <div className='main-container1'>
         <div className='line' />
         <span className='features'>{title}</span>
