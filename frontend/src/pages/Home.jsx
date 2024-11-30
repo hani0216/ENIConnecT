@@ -1,18 +1,19 @@
 import '../styles/Home.css'
 import React from 'react';
 import HomeNavBar from '../components/HomeNavBar';
-import NameGif from '../components/NameGif';
+
+import Eniconnect from '../components/Eniconnect';
 
 const Home = () => {
     return (
         <div>
             <header>
-            <HomeNavBar /> 
-            <NameGif />
+                <HomeNavBar />
+                <Eniconnect />
 
-           
+
             </header>
-        
+
         </div>
     );
 };
