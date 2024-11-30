@@ -4,11 +4,14 @@ body {
   margin: 0;
   padding: 0;
   background: var(--Light-Light-2, #F2F2F2);
+  height: auto;
 }
 
 /* Styles pour rendre l'application centrée */
 .container {
   max-width: 1200px;
+  height: auto;
+
   margin: 0 auto;
   padding: 0 20px;
 }

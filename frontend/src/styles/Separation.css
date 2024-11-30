@@ -1,0 +1,40 @@
+.Features{
+  margin-top: 4vh;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #000000;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 52px;
+  text-align: center;
+  white-space: nowrap;
+  
+ 
+}
+
+.main-container1{
+  display: flex;
+  margin-bottom: 20vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line{
+  
+  width: 350px;
+  height: 10px;
+  border-radius: 10%;
+  flex-shrink: 0;
+  stroke-width: 4px;
+  background-image: url('../assets/Line.png');
+  text-align: center;
+  background-size: cover ;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
