@@ -7,26 +7,32 @@ const Eniconnect = () => {
 
     useEffect(() => {
         let index = 0;
-        const interval = setInterval(() => {
-            setDisplayText(fullText.slice(0, index + 1));
-            index++;
-            if (index === fullText.length) {
-                setTimeout(() => {
-                    let reverseIndex = fullText.length;
-                    const reverseInterval = setInterval(() => {
-                        reverseIndex--;
-                        setDisplayText(fullText.slice(0, reverseIndex));
-                        if (reverseIndex === 0) {
-                            clearInterval(reverseInterval);
-                            index = 0; // Restart animation
-                        }
-                    }, animationSpeed);
-                }, animationSpeed * 2); // Pause before reversing
-                clearInterval(interval);
-            }
-        }, animationSpeed);
+        let isReversing = false;
 
-        return () => clearInterval(interval);
+        const animate = () => {
+            if (!isReversing) {
+                setDisplayText(fullText.slice(0, index + 1));
+                index++;
+                if (index > fullText.length - 1) {
+                    isReversing = true;
+                    setTimeout(animate, animationSpeed * 2); // Pause before reversing
+                    return;
+                }
+            } else {
+                setDisplayText(fullText.slice(0, index - 1));
+                index--;
+                if (index <= 0) {
+                    isReversing = false;
+                    setTimeout(animate, animationSpeed * 1); // Pause before restarting
+                    return;
+                }
+            }
+            setTimeout(animate, animationSpeed);
+        };
+
+        animate(); // Start the animation
+
+        return () => { }; // No cleanup needed since it loops infinitely
     }, []);
 
     const getStyledText = (text) => {
