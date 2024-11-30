@@ -50,8 +50,8 @@ const Eniconnect = () => {
     };
 
     return (
-        <main style={{ textAlign: 'left', marginTop: '50px', height: '100vh' }}>
-            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', fontFamily: 'Arial, sans-serif' }}>
+        <main style={{ textAlign: 'left', marginTop: '0px', height: '10vh' , marginBottom: '100px' , marginLeft: '0vh'}}>
+            <h1 style={{ fontSize: '5rem', fontWeight: 'bold', fontFamily: 'Arial, sans-serif' }}>
                 {getStyledText(displayText)}
             </h1>
         </main>
