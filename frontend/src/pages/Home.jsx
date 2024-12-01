@@ -1,9 +1,9 @@
 import '../styles/Home.css'
 import React from 'react';
 import HomeNavBar from '../components/HomeNavBar';
-import FEATURES from '../components/Features'
-
+import FEATURES from '../components/Features' ;
 import Eniconnect from '../components/Eniconnect';
+import ABOUT from '../components/About'
 
 const Home = () => {
     return (
@@ -40,6 +40,7 @@ const Home = () => {
                 </button>
                 <div className='features'>
                    <FEATURES />
+                   <ABOUT />
 
                 </div>
          
