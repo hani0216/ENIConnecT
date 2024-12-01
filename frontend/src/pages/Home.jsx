@@ -4,6 +4,7 @@ import HomeNavBar from '../components/HomeNavBar';
 import FEATURES from '../components/Features' ;
 import Eniconnect from '../components/Eniconnect';
 import ABOUT from '../components/About'
+import HomeFooter from '../components/HomeFooter';
 
 const Home = () => {
     return (
@@ -41,6 +42,8 @@ const Home = () => {
                 <div className='features'>
                    <FEATURES />
                    <ABOUT />
+                   <HomeFooter />
+
 
                 </div>
          

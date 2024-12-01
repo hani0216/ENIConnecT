@@ -18,12 +18,15 @@
     width: 50vh;
     height: 60vh;
     margin: 0 auto;
-    background: url(../assets/enit_cover.jpg)
-      no-repeat center;
+    background: url(../assets/enit_cover.jpg)      no-repeat center;
     background-size: cover;
     border-radius: 40px;
     box-sizing: content-box;
     margin-left: 10%;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
 }
 .title1{
     color: var(--Dark-100, #333);

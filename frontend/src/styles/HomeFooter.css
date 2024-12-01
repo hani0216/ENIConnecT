@@ -1,0 +1,45 @@
+.Footer1{
+    height: 50vh;
+    border-radius: 12px;
+    background: rgba(15, 28, 130, 0.20);
+    display: flex;
+    text-align: center;
+
+}
+.logo2{
+    background: url(../assets//logo.jpeg);
+    background-size: cover;
+    border-radius: 10px;
+    box-sizing: content-box;
+    position: relative;
+    width: 30vh;
+    height: 30vh;
+    margin: 10vh 12vh 10vh 10vh ;
+
+   
+}
+
+.copyright{
+    margin-top: 3vh;
+    width: 90vh;
+}
+h1 {
+    color: #333; /* Couleur du texte */
+    font-size: 2em; /* Taille de la police */
+    text-align: left; /* Alignement du texte au centre */
+    
+  }
+  
+  h5 {
+    color: #666; /* Couleur du texte */
+    font-size: 1em; /* Taille de la police */
+    text-align: center; /* Alignement du texte au centre */
+    line-height: 1.5; /* Espacement entre les lignes */
+    margin: 20px; /* Marge autour du texte */
+    text-align: left;
+  }
+  .contact{
+    margin-top: 4vh;
+    width: 60vh;
+    margin-left: 10vh;
+  }
