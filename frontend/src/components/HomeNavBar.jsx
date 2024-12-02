@@ -1,18 +1,22 @@
 import React from 'react';
 import '../styles/HomeNavBar.css';
+import { Link } from 'react-router-dom';
 
-export default function Main() {
+
+function HomeNavBar() {
   return (
     <div className='main-container'>
       <div className='logo-enit' />
       <div className='frame'>
-        <button className='medium-primary'>
+        <Link to="/login" className='medium-primary'>
           <span className='button'>Login</span>
-        </button>
-        <button className='medium-primary-1'>
+        </Link>
+        <Link to="/signup" className='medium-primary-1'>
           <span className='button-2'>Register</span>
-        </button>
+        </Link>
       </div>
     </div>
   );
 }
+
+export default HomeNavBar

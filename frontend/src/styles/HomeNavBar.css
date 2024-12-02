@@ -64,6 +64,7 @@
     border: none;
     z-index: 2;
     border-radius: 6px;
+    text-decoration: none;
   }
   .button {
     display: flex;
@@ -83,6 +84,7 @@
     white-space: nowrap;
     z-index: 3;
     background: white;
+    text-decoration: none;
   }
   .medium-primary-1 {
     display: flex;
@@ -98,6 +100,7 @@
     border: none;
     z-index: 4;
     border-radius: 6px;
+    text-decoration: none;
   }
   .button-2 {
     display: flex;
@@ -116,5 +119,7 @@
     text-align: center;
     white-space: nowrap;
     z-index: 5;
+    text-decoration: none;
+    
   }
   

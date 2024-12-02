@@ -4,7 +4,9 @@ import '../styles/HomeFooter.css'
 function HomeFooter() {
   return (
     <div className='Footer1'>
-        <section className='logo2'></section>
+      
+            <div className='logo2'> </div>
+      
         <section className='copyright'>
             <h3>🤝 Contribution et Open Source📚</h3>
         <h7>Ce projet a été réalisé par un groupe d'étudiants de la filière informatique de l'ENIT. Notre objectif est d'améliorer la vie associative et de renforcer la collaboration entre les étudiants. Nous croyons en l'open source et souhaitons offrir à la communauté un outil évolutif et participatif.

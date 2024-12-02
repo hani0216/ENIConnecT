@@ -1,23 +1,22 @@
 .Footer1{
     height: 35vh;
-    border-radius: 12px;
-    background: rgba(15, 28, 130, 0.20);
+    background: black ;
     display: flex;
     text-align: center;
     justify-content: center;
 }
 .logo2{
-    background: url(../assets//logo.jpeg);
+
     background-size: cover;
-    border-radius: 10px;
     box-sizing: content-box;
     position: relative;
-    width: 20vh;
-    height: 20vh;
-    margin: 8vh 19vh 11vh 8vh ;
+    width: 25vh;
+    height: 3vh;
+    margin: 4vh 19vh 11vh 10vh ;
 
    
 }
+
 
 .copyright{
     margin-top: 1vh;
@@ -27,14 +26,14 @@
     
 }
 h3 {
-    color: #333; /* Couleur du texte */
+    color: white; /* Couleur du texte */
     font-size: 1.5em; /* Taille de la police */
     text-align: center; /* Alignement du texte au centre */
     
   }
   
   h7 {
-    color: #666; /* Couleur du texte */
+    color: white; /* Couleur du texte */
     font-size: 0.8em; /* Taille de la police */
     text-align: center; /* Alignement du texte au centre */
     line-height: 1.5; /* Espacement entre les lignes */
