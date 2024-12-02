@@ -1,10 +1,10 @@
 .Footer1{
-    height: 50vh;
+    height: 35vh;
     border-radius: 12px;
     background: rgba(15, 28, 130, 0.20);
     display: flex;
     text-align: center;
-
+    justify-content: center;
 }
 .logo2{
     background: url(../assets//logo.jpeg);
@@ -12,34 +12,39 @@
     border-radius: 10px;
     box-sizing: content-box;
     position: relative;
-    width: 30vh;
-    height: 30vh;
-    margin: 10vh 12vh 10vh 10vh ;
+    width: 20vh;
+    height: 20vh;
+    margin: 8vh 19vh 11vh 8vh ;
 
    
 }
 
 .copyright{
-    margin-top: 3vh;
-    width: 90vh;
+    margin-top: 1vh;
+    width: 75vh;
+    margin-left: 4vh;
+    margin-right: 2vh;
+    
 }
-h1 {
+h3 {
     color: #333; /* Couleur du texte */
-    font-size: 2em; /* Taille de la police */
-    text-align: left; /* Alignement du texte au centre */
+    font-size: 1.5em; /* Taille de la police */
+    text-align: center; /* Alignement du texte au centre */
     
   }
   
-  h5 {
+  h7 {
     color: #666; /* Couleur du texte */
-    font-size: 1em; /* Taille de la police */
+    font-size: 0.8em; /* Taille de la police */
     text-align: center; /* Alignement du texte au centre */
     line-height: 1.5; /* Espacement entre les lignes */
     margin: 20px; /* Marge autour du texte */
-    text-align: left;
+    text-align:left ;
+    
   }
   .contact{
     margin-top: 4vh;
     width: 60vh;
-    margin-left: 10vh;
+    margin-left: 15vh;
+  
   }
