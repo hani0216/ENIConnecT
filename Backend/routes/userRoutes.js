@@ -6,6 +6,7 @@ const {
   updateUser,
   deleteUser,
   getAllUsers,
+  logIn,
 } = require("../controllers/userController");
 
 // Routes pour les utilisateurs
@@ -14,5 +15,6 @@ router.get("/", getAllUsers); // Récupérer tous les utilisateurs
 router.get("/:id", getUserById); // Récupérer un utilisateur par ID
 router.put("/:id", updateUser); // Mettre à jour un utilisateur
 router.delete("/:id", deleteUser); // Supprimer un utilisateur
+router.post('/logIn'  , logIn) ;
 
 module.exports = router;

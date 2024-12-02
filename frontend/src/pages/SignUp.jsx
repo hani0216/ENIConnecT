@@ -1,8 +1,11 @@
 import React from 'react'
+import Vector from '../components/vector'
 
 function SignUp() {
   return (
-    <div>SignUp</div>
+    <div>
+        <Vector />
+    </div>
   )
 }
 

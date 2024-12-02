@@ -15,6 +15,8 @@ function HomeNavBar() {
           <span className='button-2'>Register</span>
         </Link>
       </div>
+
+
     </div>
   );
 }

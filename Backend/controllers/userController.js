@@ -91,6 +91,31 @@ const getAllUsers = async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   };
+
+
+  const logIn = async (req, res) => {
+    const { email, motDePasse } = req.body;
   
-  module.exports = { createUser, getUserById, updateUser, deleteUser, getAllUsers };
+    try {
+      // Vérifier si l'utilisateur existe dans la base de données
+      const utilisateur = await Utilisateur.findOne({ email });
+  
+      if (!utilisateur) {
+        return res.status(401).json({ message: "Utilisateur non trouvé" });
+      }
+  
+      // Comparer les mots de passe
+      if (utilisateur.motDePasse !== motDePasse) {
+        return res.status(401).json({ message: "Mot de passe incorrect" });
+      }
+  
+      res.status(200).json({ message: "Connexion réussie", utilisateur });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  
+
+  
+  module.exports = { createUser, getUserById, updateUser, deleteUser, getAllUsers, logIn };
   
