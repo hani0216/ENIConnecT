@@ -101,18 +101,20 @@ const getAllUsers = async (req, res) => {
       const utilisateur = await Utilisateur.findOne({ email });
   
       if (!utilisateur) {
+        console.log("Utilisateur non trouvé pour l'email:", email);
         return res.status(401).json({ message: "Utilisateur non trouvé" });
       }
   
       // Comparer les mots de passe
       if (utilisateur.motDePasse !== motDePasse) {
+        console.log("Mot de passe incorrect pour l'utilisateur:", email);
         return res.status(401).json({ message: "Mot de passe incorrect" });
       }
   
+      console.log("Connexion réussie pour l'utilisateur:", email);
       res.status(200).json({ message: "Connexion réussie", utilisateur });
     } catch (error) {
-      // Afficher l'erreur complète pour le débogage
-      console.error(error);
+      console.error("Erreur lors de la connexion:", error);
       res.status(500).json({ error: error.message });
     }
 };

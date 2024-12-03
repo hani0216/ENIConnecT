@@ -1,7 +1,7 @@
 const express = require('express');           // Importation d'Express
 require('dotenv').config({ path: './.env' });  // Chargement des variables d'environnement
 const connectDB = require('./config/db.js');  // Importation de la connexion DB
-
+const cors = require('cors');
 const userRoutes = require('./routes/userRoutes.js')
 const publicationRoutes = require('./routes/publicationRoutes');
 const commentaireRoutes = require('./routes/commentaireRoutes');
@@ -12,6 +12,8 @@ const reactionRoutes = require('./routes/reactionRoutes.js')
 connectDB();
 // Création de l'application Express
 const app = express();
+app.use(cors());
+
 
 // Middleware pour le parsing JSON (si nécessaire)
 app.use(express.json());
@@ -19,6 +21,7 @@ app.use('/api/publications', publicationRoutes);
 app.use("/api/users", userRoutes);
 app.use('/api/comments', commentaireRoutes);
 app.use('/api/reactions', reactionRoutes)
+
 
 
 
