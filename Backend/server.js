@@ -6,6 +6,7 @@ const userRoutes = require('./routes/userRoutes.js')
 const publicationRoutes = require('./routes/publicationRoutes');
 const commentaireRoutes = require('./routes/commentaireRoutes');
 const reactionRoutes = require('./routes/reactionRoutes.js')
+const startWebSocketServer  = require('./webSocketServer.js')
 
 
 // Connexion à la base de données
@@ -38,3 +39,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
 });
+
+
+startWebSocketServer();
