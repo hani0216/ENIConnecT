@@ -1,49 +1,88 @@
-.Gif{
+/* Home.css */
 
-    background : url('../assets/BoyGif.gif') no-repeat center ;
-    width: 500px;
-    height: 439px;
-    padding-right: 10%;
-    margin-left: 5%;
+body {
+    margin: 0; /* Supprimez les marges par défaut */
+    font-family: Inter, sans-serif; /* Ajoutez une police par défaut */
 }
-.div1{
+
+.div1 {
+    display: flex; /* Flex pour aligner les sections horizontalement */
+    justify-content: space-between; /* Espace entre les sections */
+    align-items: flex-start; /* Aligne le contenu en haut */
+    margin: 0 auto; /* Centre la div */
+    padding: 20px; /* Ajoutez un peu de padding */
+}
+
+.leftSection {
     display: flex;
-    margin-top: 0vh;
-    margin-left: 10%;
-    margin-right: 0%;
-   
-}
-.leftSection{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    align-self: stretch;
-    padding-left: 0%;
-
-    flex-shrink: 0;
+    flex-direction: column; /* Colonne pour les petits écrans */
+    align-items: flex-start; /* Aligne le contenu à gauche */
+    gap: 24px; /* Espace entre les éléments */
+    width: 60%; /* Ajustez la largeur selon le besoin */
 }
 
+.Gif {
+    background: url('../assets/BoyGif.gif') no-repeat center; /* Assurez-vous que le chemin est correct */
+    background-size: cover; /* Couvre le conteneur */
+    width: 35%; /* Largeur responsive */
+    max-width: 500px; /* Limite de largeur */
+    height: 439px; /* Hauteur fixe */
+    margin-left: 20px; /* Espacement autour du GIF */
+}
 
-.content{
+/* Texte de la section */
+.content {
     color: #000;
-font-feature-settings: 'liga' off, 'clig' off;
-font-family: Inter;
-font-size: 48px;
-font-style: normal;
-font-weight: 700;
-line-height: 76px;
+    font-size: 2.5rem; /* Taille de police pour les grands écrans */
+    line-height: 1.2; /* Ajustement de l'interligne */
+    text-align: left; /* Alignement à gauche */
 }
 
-.text2{
+.text2 {
     color: #000;
-    font-feature-settings: 'liga' off, 'clig' off;
-
-/* Body Title/Body Medium */
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 22px; /* 122.222% */
+    font-size: 1.2rem; /* Taille de police ajustée */
+    line-height: 1.5; /* Améliore la lisibilité */
 }
 
+/* Styles pour le bouton */
+.medium-primary-1 {
+    padding: 10px 20px; /* Ajoutez du padding au bouton */
+    background: #0f1c82; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    border: none; /* Supprimez la bordure */
+    border-radius: 6px; /* Coins arrondis */
+    cursor: pointer; /* Montre que c'est cliquable */
+}
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 768px) {
+    .div1 {
+        flex-direction: column; /* Empile les sections verticalement sur les petits écrans */
+        align-items: center; /* Centre les éléments */
+    }
+
+    .leftSection {
+        width: 100%; /* Prend toute la largeur disponible sur les petits écrans */
+        align-items: center; /* Centre le contenu */
+    }
+
+    .Gif {
+        max-width: 90%; /* Réduit la largeur maximale sur les petits écrans */
+        height: auto; /* Ajustement automatique de la hauteur */
+        margin-left: 0; /* Supprimez la marge à gauche */
+        margin-top: 20px; /* Ajoutez un espacement en haut */
+    }
+
+    .content {
+        font-size: 1.8rem; /* Ajustement pour les petits écrans */
+    }
+
+    .text2 {
+        font-size: 1rem; /* Ajustement pour les petits écrans */
+    }
+
+    .medium-primary-1 {
+        width: 100%; /* Bouton s'étend sur toute la largeur */
+        margin-left: 0; /* Supprimez la marge à gauche */
+    }
+}

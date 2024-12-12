@@ -22,3 +22,17 @@ body {
     padding: 0 10px;
   }
 }
+.App {
+  margin: 20px;
+}
+
+.App-header {
+  padding: 20px;
+}
+
+.feature-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}

@@ -64,3 +64,12 @@ font-weight: bold;
     margin: 4vh;
 
 }
+@media (max-width: 768px) {
+    .title1 {
+      font-size: 1.5rem; /* Plus petite sur les écrans mobiles */
+    }
+  
+    .textAbout {
+      font-size: 0.9rem; /* Plus petite sur les écrans mobiles */
+    }
+  }

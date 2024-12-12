@@ -1,49 +1,77 @@
-.Footer1{
-    height: 35vh;
-    background: black ;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
-.logo2{
+/* HomeFooter.css */
 
-    background-size: cover;
-    box-sizing: content-box;
-    position: relative;
-    width: 25vh;
-    height: 3vh;
-    margin: 4vh 19vh 11vh 10vh ;
-
-   
+.Footer1 {
+  height: auto; /* Ajustement automatique de la hauteur */
+  background: rgb(4, 32, 67); /* Couleur de fond */
+  display: flex;
+  flex-direction: column; /* Aligne les éléments verticalement */
+  text-align: center; /* Centre le texte */
+  justify-content: center; /* Centre verticalement */
+  padding: 10px; /* Ajoutez un padding */
+  color: white; /* Couleur du texte */
 }
 
-
-.copyright{
-    margin-top: 1vh;
-    width: 75vh;
-    margin-left: 4vh;
-    margin-right: 2vh;
-    
+.footer-content {
+  display: flex; /* Utilise Flexbox pour aligner les sections */
+  justify-content: space-between; /* Espace entre les deux sections */
+  width: 100%; /* Prend toute la largeur */
+  padding: 0 10px; /* Ajoutez du padding */
 }
-h3 {
-    color: white; /* Couleur du texte */
-    font-size: 1.5em; /* Taille de la police */
-    text-align: center; /* Alignement du texte au centre */
-    
+
+.logo2 {
+  /* Ajoutez ici vos styles de logo */
+  background-size: cover;
+  width: 100%; /* Réglez à 100% pour qu'il soit responsive */
+  height: auto; /* Ajustement automatique de la hauteur */
+  max-width: 25vh; /* Limitez la taille maximale */
+  margin: 20px auto; /* Centrez le logo */
+}
+
+.copyright {
+  margin-top: 1vh;
+  width: 100%; /* Réglez à 100% */
+  padding: 0 10px; /* Ajoutez un padding */
+}
+
+h4, h3 {
+  color: white; /* Couleur du titre */
+  margin-bottom: 10px; /* Espace sous le titre */
+}
+.contribution p {
+
+  color: rgb(155, 148, 148);
+  font-size: 0.8em; /* Réduisez la taille de la police ici */
+  line-height: 1.4; /* Ajustez l'interligne si nécessaire */
+}
+
+h7 {
+  color: white;
+  font-size: 0.8em;
+  line-height: 1.5;
+  margin: 20px;
+  text-align: left;
+}
+
+.contact {
+  margin-top: 4vh;
+  width: 100%; /* Réglez à 100% */
+  padding: 0 10px; /* Ajoutez un padding */
+}
+
+@media (max-width: 768px) {
+  .Footer1 {
+      padding: 15px;
   }
-  
+
+  h3 {
+      font-size: 1.2em; /* Ajustez la taille du texte pour les petits écrans */
+  }
+
   h7 {
-    color: white; /* Couleur du texte */
-    font-size: 0.8em; /* Taille de la police */
-    text-align: center; /* Alignement du texte au centre */
-    line-height: 1.5; /* Espacement entre les lignes */
-    margin: 20px; /* Marge autour du texte */
-    text-align:left ;
-    
+      font-size: 0.7em; /* Ajustez la taille du texte pour les petits écrans */
   }
-  .contact{
-    margin-top: 4vh;
-    width: 60vh;
-    margin-left: 15vh;
-  
+
+  .logo2 {
+      max-width: 20vh; /* Réglez la taille maximale pour les petits écrans */
   }
+}

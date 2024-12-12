@@ -3,7 +3,7 @@ import Home from './pages/Home.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './pages/LogIn.jsx';
 import SignUp from './pages/SignUp.jsx';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
